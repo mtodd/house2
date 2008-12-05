@@ -1,5 +1,5 @@
 class Products < Application
-  # provides :xml, :yaml, :js
+  provides :xml, :json
   
   before :ensure_authenticated, :exclude => [:index, :show]
   
