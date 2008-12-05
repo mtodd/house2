@@ -8,7 +8,7 @@ class Users < Application
     display @users
   end
 
-  def show(id)
+  def show(id = params[:id])
     @user = User.get(id)
     raise NotFound unless @user
     display @user
@@ -20,14 +20,14 @@ class Users < Application
     display @user
   end
 
-  def edit(id)
+  def edit(id = params[:id])
     only_provides :html
     @user = User.get(id)
     raise NotFound unless @user
     display @user
   end
 
-  def create(user)
+  def create(user = params[:user])
     @user = User.new(user)
     if @user.save
       session[:user] = @user.id
@@ -38,7 +38,7 @@ class Users < Application
     end
   end
 
-  def update(id, user)
+  def update(id = params[:id], user = params[:user])
     @user = User.get(id)
     raise NotFound unless @user
     if @user.update_attributes(user)
@@ -48,7 +48,7 @@ class Users < Application
     end
   end
 
-  def destroy(id)
+  def destroy(id = params[:id])
     @user = User.get(id)
     raise NotFound unless @user
     if @user.destroy
