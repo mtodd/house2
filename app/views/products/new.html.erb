@@ -1,13 +1,13 @@
 <h1>Add Product</h1>
 
-<form action="<%= url(:products) %>" method="POST">
-  Name: <input type="text" name="product[name]" /><br />
-  SKU: <input type="text" name="product[sku]" /><br />
+<%= form_for(@product, :action => resource(:products)) do %>
+  <%= text_field :name, :label => "Name" %><br />
+  <%= text_field :sku, :label => "SKU" %><br />
   
-  Aisle: <input type="text" name="product[aisle]" /><br />
-  Bin: <input type="text" name="product[bin]" /><br />
+  <%= text_field :aisle, :label => "Aisle" %><br />
+  <%= text_field :bin, :label => "Bin" %><br />
   
-  Inventory: <input type="text" name="product[inventory]" /><br />
+  <%= text_field :inventory, :label => "Inventory" %><br />
   
-  <input type="submit" value="Save" />
-</form>
+  <%= submit "Save" %>
+<% end =%>
