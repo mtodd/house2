@@ -30,7 +30,7 @@ Merb::Router.prepare do
   # RESTful routes
   resources :users
   resources :products do
-    member :check_stock, :method => :get
+    collection :check_stock, :method => :get
   end
   
   # Adds the required routes for merb-auth using the password slice
