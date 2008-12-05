@@ -1,13 +1,13 @@
 <h1>Add Product</h1>
 
 <form action="/products" method="POST">
-  Name: <input type="text" name="name" /><br />
-  SKU: <input type="text" name="sku" /><br />
+  Name: <input type="text" name="product[name]" /><br />
+  SKU: <input type="text" name="product[sku]" /><br />
   
-  Aisle: <input type="text" name="aisle" /><br />
-  Bin: <input type="text" name="bin" /><br />
+  Aisle: <input type="text" name="product[aisle]" /><br />
+  Bin: <input type="text" name="product[bin]" /><br />
   
-  Inventory: <input type="text" name="inventory" /><br />
+  Inventory: <input type="text" name="product[inventory]" /><br />
   
   <input type="submit" value="Save" />
 </form>
