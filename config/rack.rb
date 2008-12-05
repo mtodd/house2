@@ -7,5 +7,8 @@ end
 # that serves static files
 use Merb::Rack::Static, Merb.dir_for(:public)
 
+require 'jsonp'
+use Rack::JSONP
+
 # this is our main merb application
 run Merb::Rack::Application.new
