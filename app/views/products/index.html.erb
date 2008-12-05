@@ -18,7 +18,7 @@
       <td><%= product.aisle %>-<%= product.bin %></td>
       <td><%= product.inventory %></td>
       
-      <td><%= link_to "Edit", resource(product, :edit) %></td>
+      <td><%= link_to "Edit", resource(product, :edit) if current_user %></td>
     </tr>
   <% end %>
 </table>

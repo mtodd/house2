@@ -8,7 +8,7 @@
   <body>
     <h1>House</h1>
     <div id="menu">
-      <% if session[:user] %>
+      <% if current_user %>
         <%= link_to "Products", resource(:products) %> |
         <%= link_to "Logout", url(:logout) %>
       <% else %>
