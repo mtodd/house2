@@ -9,10 +9,11 @@
     <h1>House</h1>
     <div id="menu">
       <% if session[:user] %>
-        <%= link_to "Product", resource(:products) %> |
+        <%= link_to "Products", resource(:products) %> |
         <%= link_to "Logout", url(:logout) %>
       <% else %>
-        <%= link_to "Signup", resource(:users, :new) %>
+        <%= link_to "Signup", resource(:users, :new) %> |
+        <%= link_to "Login", url(:login) %>
       <% end %>
     </div>
     <%= message[:notice] %>
