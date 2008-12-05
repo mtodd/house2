@@ -56,5 +56,14 @@ class Products < Application
       raise InternalServerError
     end
   end
-
+  
+  def check_stock
+    render_then_call do
+      Product.out_of_stock.each do |product|
+        # TODO: send mailing with out-of-stock alert
+        logger.warn "Product #{product.id} is out of stock!"
+      end
+    end
+  end
+  
 end # Products
