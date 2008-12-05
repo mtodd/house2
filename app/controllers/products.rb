@@ -6,7 +6,7 @@ class Products < Application
     display @products
   end
 
-  def show(id)
+  def show(id = params[:id])
     @product = Product.get(id)
     raise NotFound unless @product
     display @product
@@ -18,14 +18,14 @@ class Products < Application
     display @product
   end
 
-  def edit(id)
+  def edit(id = params[:id])
     only_provides :html
     @product = Product.get(id)
     raise NotFound unless @product
     display @product
   end
 
-  def create(product)
+  def create(product = params[:product])
     @product = Product.new(product)
     if @product.save
       redirect resource(@product), :message => {:notice => "Product was successfully created"}
@@ -35,7 +35,7 @@ class Products < Application
     end
   end
 
-  def update(id, product)
+  def update(id = params[:id], product = params[:product])
     @product = Product.get(id)
     raise NotFound unless @product
     if @product.update_attributes(product)
@@ -45,7 +45,7 @@ class Products < Application
     end
   end
 
-  def destroy(id)
+  def destroy(id = params[:id])
     @product = Product.get(id)
     raise NotFound unless @product
     if @product.destroy
