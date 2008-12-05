@@ -1,6 +1,6 @@
 <h1>Products</h1>
 
-<a href="/products/new">Add Product</a>
+<a href="<%= url(:new_product) %>">Add Product</a>
 
 <table id="products">
   <tr>
@@ -13,12 +13,12 @@
   </tr>
   <% @products.each do |product| %>
     <tr class="product">
-      <td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
+      <td><a href="<%= url(:product, product.id) %>"><%= product.name %></a></td>
       <td><%= product.sku %></td>
       <td><%= product.aisle %>-<%= product.bin %></td>
       <td><%= product.inventory %></td>
       
-      <td><a href="/products/<%= product.id %>/edit">Edit</a></td>
+      <td><a href="<%= url(:edit_product, product.id) %>">Edit</a></td>
     </tr>
   <% end %>
 </table>
