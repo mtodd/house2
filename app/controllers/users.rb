@@ -30,7 +30,8 @@ class Users < Application
   def create(user)
     @user = User.new(user)
     if @user.save
-      redirect resource(@user), :message => {:notice => "User was successfully created"}
+      session[:user] = @user.id
+      redirect resource(:products), :message => {:notice => "Signed up successfully!"}
     else
       message[:error] = "User failed to be created"
       render :new
