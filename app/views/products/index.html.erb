@@ -1,4 +1,20 @@
-<h1>Products controller, index action</h1>
+<h1>Products</h1>
 
-<p>Edit this file in <tt>app/views/products/index.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<a href="/products/new">Add Product</a>
+
+<table id="products">
+  <tr>
+    <th>Name</th>
+    <th>SKU</th>
+    <th>Location</th>
+    <th>Inventory</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr class="product">
+      <td><%= product.name %></td>
+      <td><%= product.sku %></td>
+      <td><%= product.aisle %>-<%= product.bin %></td>
+      <td><%= product.inventory %></td>
+    </tr>
+  <% end %>
+</table>
