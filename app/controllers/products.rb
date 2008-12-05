@@ -1,6 +1,8 @@
 class Products < Application
   # provides :xml, :yaml, :js
-
+  
+  before :ensure_authenticated, :exclude => [:index, :show]
+  
   def index
     @products = Product.all
     display @products
