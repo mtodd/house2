@@ -10,6 +10,14 @@ class Product
   property :created_at, DateTime
   property :updated_at, DateTime
   
+  def self.out_of_stock
+    all(:inventory.lt => 1)
+  end
+  
+  def self.oversold
+    all(:inventory.lt => 0)
+  end
+  
   def to_json
     self.attributes.to_json
   end
