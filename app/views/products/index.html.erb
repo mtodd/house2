@@ -8,13 +8,17 @@
     <th>SKU</th>
     <th>Location</th>
     <th>Inventory</th>
+    
+    <th></th>
   </tr>
   <% @products.each do |product| %>
     <tr class="product">
-      <td><%= product.name %></td>
+      <td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
       <td><%= product.sku %></td>
       <td><%= product.aisle %>-<%= product.bin %></td>
       <td><%= product.inventory %></td>
+      
+      <td><a href="/products/<%= product.id %>/edit">Edit</a></td>
     </tr>
   <% end %>
 </table>
