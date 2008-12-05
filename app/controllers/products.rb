@@ -1,7 +1,7 @@
 class Products < Application
   provides :xml, :json
   
-  before :ensure_authenticated, :exclude => [:index, :show]
+  before :ensure_authenticated, :exclude => [:index, :show, :check_stock]
   
   def index
     @products = Product.all
@@ -58,7 +58,7 @@ class Products < Application
   end
   
   def check_stock
-    render_then_call do
+    render_then_call "" do
       Product.out_of_stock.each do |product|
         # TODO: send mailing with out-of-stock alert
         logger.warn "Product #{product.id} is out of stock!"
