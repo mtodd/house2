@@ -1,33 +1,15 @@
 ---
-# This is a sample database file for the DataMapper ORM
 development: &defaults
-  # These are the settings for repository :default
   adapter:  sqlite3
-  database: sample_development.db
- 
-  # Add more repositories
-  # repositories:
-  #   repo1:
-  #     adapter:  sqlite3
-  #     database: sample_1_development.db
-  #   repo2:
-  #     ...
- 
+  database: schema/house_development.db
+
 test:
   <<:       *defaults
-  database: sample_test.db
- 
-  # repositories:
-  #   repo1:
-  #     database: sample_1_test.db
- 
+  database: schema/house_test.db
+
 production:
   <<:       *defaults
-  database: production.db
- 
-  # repositories:
-  #   repo1:
-  #     database: sample_production.db
- 
+  database: schema/production.db
+
 rake:
   <<: *defaults
