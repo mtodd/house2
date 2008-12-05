@@ -61,7 +61,7 @@ class Products < Application
     render_then_call "" do
       Product.out_of_stock.each do |product|
         # TODO: send mailing with out-of-stock alert
-        logger.warn "Product #{product.id} is out of stock!"
+        Merb.logger.warn "Product #{product.id} is out of stock!"
       end
     end
   end
